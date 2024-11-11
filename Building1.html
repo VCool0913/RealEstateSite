@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Listings</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script>
+        function displayImage(event) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = event.target.src;
+
+            const thumbnails = document.querySelectorAll('.image-gallery img');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.classList.remove('selected');
+            });
+
+            event.target.classList.add('selected');
+        }
+
+        function switchTab(tab) {
+            const sections = ['listingHistory', 'taxes', 'homeDetails', 'similarHomes', 'affordability'];
+            const tabs = ['listingTab', 'taxesTab', 'homeDetailsTab', 'similarHomesTab', 'affordabilityTab'];
+
+            // Check if the clicked tab is already active
+            const currentActiveTab = tabs.find(t => document.getElementById(t).classList.contains('active'));
+
+            // If the clicked tab is already active, switch to a different tab temporarily
+            if (currentActiveTab === `${tab}Tab`) {
+                // Temporarily switch to another tab
+                const otherTab = tabs.find(t => t !== `${tab}Tab`);
+                switchTab(otherTab.replace('Tab', '')); // Switch to any other tab
+            }
+
+            // Now switch to the desired tab
+            sections.forEach(section => {
+                document.getElementById(section).style.display = section === tab ? 'block' : 'none';
+            });
+
+            tabs.forEach(tabElement => {
+                const element = document.getElementById(tabElement);
+                if (tabElement === `${tab}Tab`) {
+                    listingTab.classList.remove('active')
+                    element.classList.add('active');
+                } else {
+                    element.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">Happy Office Time - <span>Real Estate</span></div>
+        <div class="nav">
+            <a href="Home.html">Home Page</a>
+            <a href="#">  - </a>
+            <a href="browseOffers.html">Browse Offers</a>
+            <a href="#">  - </a>
+            <a href="contactUs.html">Contact Us</a>
+            <a href="#">  - </a>
+            <a href="agents.html">Agents</a>
+        </div>
+    </div>
+    <div class="hero">
+        <img src="Beach.jpg" alt="House in a forest" width="1920" height="400" />
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>The Future of Real Estate Starts Here</h1>
+            <p>The happiest place to find the happiest of homes</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Address, Street Name or Listing" />
+                <button>Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <div class="image-section">
+                <img id="mainImage" class="main-image"
+                    src="https://storage.googleapis.com/a1aa/image/nPUPXED8c67VOxG1Y2jDY43FH6y5auyL1UL1O4uhFqee8RuTA.jpg"
+                    alt="Main property image" />
+                <div class="image-gallery">
+                    <img src="https://storage.googleapis.com/a1aa/image/nPUPXED8c67VOxG1Y2jDY43FH6y5auyL1UL1O4uhFqee8RuTA.jpg"
+                        alt="Property image 1" class="selected" onclick="displayImage(event)" />
+                    <img src="https://storage.googleapis.com/a1aa/image/lYeKo36qVSxhdCZVevV9EmFS8Dc1tjeh0fpTitDTRAEpzH5OB.jpg"
+                        alt="Property image 2" onclick="displayImage(event)" />
+                    <img src="https://storage.googleapis.com/a1aa/image/ztt9cxW1VQLxLtKNK2Y9Vz8X3MCqG5fBWgBgKpfvk68e5jcnA.jpg"
+                        alt="Property image 3" onclick="displayImage(event)" />
+                    <img src="https://storage.googleapis.com/a1aa/image/OfAfJOTdBYuMyEBeLbpbeB8bT6IjYYzsFv1vC7R1MJYuzH5OB.jpg"
+                        alt="Property image 4" onclick="displayImage(event)" />
+                    <!--  <img src="https://storage.googleapis.com/a1aa/image/xPk0GKsI0raWMNzhDaoKJiORcmbqOpXXemnMMIBbq1ff5jcnA .jpg" alt="Property image 5" onclick="displayImage(event)"/>-->
+                </div>
+            </div>
+            <div class="property-info">
+                <h1>119 Denison Ave</h1>
+                <p>Toronto - Junction Area</p>
+                <p>Condo Apt</p>
+                <p class="price">Listed for: $750,000</p>
+                <p class="status">Listed in Jan 2024</p>
+            </div>
+            <div class="property-details">
+                <div>
+                    <i class="fas fa-bed"></i>
+                    <p>1 Bedrooms</p>
+                </div>
+                <div>
+                    <i class="fas fa-bath"></i>
+                    <p>1 Bathrooms</p>
+                </div>
+                <div>
+                    <i class="fas fa-car"></i>
+                    <p>0 Garage</p>
+                </div>
+                <div>
+                    <i class="fas fa-square"></i>
+                    <p>800 sqft</p>
+                </div>
+            </div>
+            <div class="tabs">
+                <a id="listingTab" class="active" href="javascript:void(0);"
+                    onclick="switchTab('listingHistory')">Listing History</a>
+                <a id="taxesTab" href="javascript:void(0);" onclick="switchTab('taxes')">Taxes</a>
+                <a id="homeDetailsTab" href="javascript:void(0);" onclick="switchTab('homeDetails')">Home Details</a>
+                <a id="similarHomesTab" href="javascript:void(0);" onclick="switchTab('similarHomes')">Similar Homes</a>
+                <a id="affordabilityTab" href="javascript:void(0);"
+                    onclick="switchTab('affordability')">Affordability</a>
+            </div>
+            <div id="listingHistory" class="listing-history">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date Start</th>
+                            <th>Date End</th>
+                            <th>Price</th>
+                            <th>Event</th>
+                            <th>Listing ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-01-17</td>
+                            <td></td>
+                            <td>$750,000</td>
+                            <td>For Sale</td>
+                            <td>HSE03252</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="taxes" class="taxes" style="display:none;">
+                <table class="taxes-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Tax</th>
+                            <th>Assessment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022</td>
+                            <td>$10,464</td>
+                            <td>$409,994</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="homeDetails" class="home-details" style="display:none;">
+                <h3>Home Details</h3>
+                <p>Square Footage: 800 sqft</p>
+                <p>Year Built: 2020</p>
+                <p>Heating: Central</p>
+                <p>Cooling: Central Air</p>
+                <p>Interior Features: Basement, Recreation Room</p>
+            </div>
+            <div id="similarHomes" class="similar-homes" style="display:none;">
+                <h3>Similar Homes</h3>
+                <div class="similar-home">
+                    <a href="Similar.html">
+                        <img src="https://storage.googleapis.com/a1aa/image/nPUPXED8c67VOxG1Y2jDY43FH6y5auyL1UL1O4uhFqee8RuTA.jpg"
+                            alt="Similar Home 1" />
+                        </a>
+                        <p>121 Denison Ave - $740,000</p>
+                        <p>1 Bed, 1 Bath, 750 sqft</p>
+                
+                </div>
+                <div class="similar-home">
+                    <a href="Similar.html">
+                        <img src="https://storage.googleapis.com/a1aa/image/lYeKo36qVSxhdCZVevV9EmFS8Dc1tjeh0fpTitDTRAEpzH5OB.jpg"
+                            alt="Similar Home 2" />
+                        </a>
+                        <p>115 Denison Ave - $760,000</p>
+                        <p>1 Bed, 1 Bath, 800 sqft</p>
+                   
+                </div>
+
+            </div>
+            <div id="affordability" class="affordability" style="display:none;">
+                <h3>Affordability Calculator</h3>
+                <p>Monthly Payment: $3,500</p>
+                <p>Estimated Taxes: $800/month</p>
+                <p>Insurance: $150/month</p>
+            </div>
+            <div class="key-facts">
+                <h3>Key Facts</h3>
+                <p>Project Name: MRKT Alexandra Park</p>
+                <p>Builder(s): Tridel</p>
+                <p>Occupancy Date: January 31, 2025</p>
+                <p>Listing #: HSE03252</p>
+                <p>Data Source: Exclusive</p>
+                <p>Status Change: 9 months ago</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <p>© Happy Office Time 2024</p>
+        <a href="privacyPolicy.html">Privacy Policy</a>
+        <a href="termsOfService.html">Terms of Service</a>
+    </div>
+</body>
+
+</html>

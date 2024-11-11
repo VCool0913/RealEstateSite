@@ -1,0 +1,583 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.header {
+    background-color: #2d44c7;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.similar-homes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.similar-home {
+    flex: 1 1 calc(33% - 20px); /* Adjusting width to fit 3 items in a row with spacing */
+    margin: 50px; /* Adding margin for spacing */
+    border: 1px solid #2d44c7; /* Adding a border for definition */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Prevent overflow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Centering text */
+    background-color: #fff; /* Background color */
+    transition: transform 0.2s; /* Smooth hover effect */
+    max-width: 1200px;
+}
+
+.similar-home img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.similar-home:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.similar-home p {
+    margin: 10px 0; /* Spacing for text */
+}
+
+.taxes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.taxes-table th, .taxes-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.taxes-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.taxes-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.taxes-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.header .logo span {
+    color: #2b2b2b;
+}
+
+.header .nav {
+    display: flex;
+    align-items: center;
+}
+
+.header .nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.header .nav .dropdown {
+    position: relative;
+}
+
+.header .nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.header .nav .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.header .nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.header .nav .login,
+.header .nav .join {
+    background-color: white;
+    color: #2d44c7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero .content h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.hero .content p {
+    font-size: 18px;
+}
+
+.hero .content .search-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero .content .search-bar input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.hero .content .search-bar button {
+    padding: 10px;
+    background-color: #2d44c7;
+    border: none;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+.hero .content .hiring {
+    margin-top: 10px;
+}
+
+.hero .content .hiring a {
+    color: white;
+    text-decoration: none;
+    background-color: #4d4d4d;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.main-content .section-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.main-content .section-title a {
+    float: right;
+    font-size: 14px;
+    color: #2d44c7;
+    text-decoration: none;
+}
+
+.main-content .listings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main-content .listings .listing {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: calc(33.333% - 20px);
+    height: calc(33.333% - 80px);
+    min-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-content .listings .listing img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.main-content .listings .listing .info {
+    padding: 10px;
+}
+
+.listing img:hover {
+    transform: scale(1.05);
+}
+
+.main-content .listings .listing .info .status {
+    background-color: #2d44c7;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+ .main-content .listings .listing .info .price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.main-content .listings .listing .info .details {
+    font-size: 14px;
+    color: #666;
+}
+
+.main-content .listings .listing .info .details i {
+    margin-right: 5px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.image-section {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+
+.main-image {
+    width: 100%;
+    height: auto;
+}
+
+.image-gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.image-gallery img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.image-gallery img.selected {
+    border: 2px solid green;
+    
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.property-info {
+    margin-top: 20px;
+}
+.agentLink {
+    text-decoration: none;
+color: #000;
+}
+
+.property-info h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.agents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+   
+   }
+   .agent {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    height: 175px;
+    transition: transform 0.2s;
+   
+   }
+   .agent img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+   }
+   .agent h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    font-weight: 500;
+   }
+   .agent p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+   }
+   .agent:hover {
+    transform: scale(1.05);
+    color: #0055af;
+   }
+
+.property-info p {
+    margin: 5px 0;
+    color: #757575;
+}
+
+.property-info .price {
+    font-size: 20px;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+.property-info .status {
+    color: #757575;
+}
+
+.property-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.property-details div {
+    text-align: center;
+}
+
+.property-details div i {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.property-details div p {
+    margin: 5px 0 0;
+    color: #757575;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tabs :hover {
+    transform: scale(1.10);
+    color: #0055af;
+}
+.tabs a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+ .tabs a.active {
+    background-color: #007bff; /* Blue background for active tab */
+    color: white; /* White text for active tab */
+    border: 1px solid #007bff; /* Blue border for active tab */
+        }
+
+.listing-history {
+    margin-top: 20px;
+}
+
+.listing-history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.listing-history th,
+.listing-history td {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.listing-history th {
+    background-color: #f5f5f5;
+}
+
+.key-facts {
+    margin-top: 20px;
+}
+
+.key-facts h3 {
+    font-size: 18px;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.key-facts p {
+    margin: 10px 0;
+    color: #757575;
+}
+
+.sidebar {
+    margin-top: 20px;
+}
+
+.sidebar .watch-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar .watch-buttons button {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sidebar .watch-buttons button.sold {
+    background-color: #757575;
+}
+
+.schedule-viewing {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.schedule-viewing h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.listing-history, .taxes {
+    margin-top: 20px;}
+
+.schedule-viewing input,
+.schedule-viewing textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.schedule-viewing button {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+} 
+.footer {
+    background-color: #2d44c7;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.listing-history, .key-facts, .home-details, .similar-homes, .property-taxes, .affordability-calculator {
+    margin-top: 20px;
+}
+
+.similar-homes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card .card-content {
+    padding: 15px;
+}
+
+.card .card-content h2 {
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+.card .card-content p {
+    font-size: 14px;
+    color: #666;
+}
+
+.button-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: #0056b3;
+}
+
